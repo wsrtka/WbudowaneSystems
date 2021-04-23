@@ -6,7 +6,8 @@ void kernel_main(void)
 {
 	uart_init();
 	init_printf(0, putc);
-	uart_send_string("Hello, world!\r\n");
+	
+	printf("Kernel initialized!\r\n");
 
 	int el = get_el();
     printf("Exception level: %d \r\n", el);
