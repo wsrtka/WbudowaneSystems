@@ -54,7 +54,7 @@ void uart_init ( void )
 	put32(AUX_MU_CNTL_REG,3);               //Finally, enable transmitter and receiver
 }
 
-// funkcja potrzebna do prawidłowego funkcjonowania printf
+// function needed to correctly initialize printf
 void putc ( void* p, char c)
 {
 	uart_send(c);

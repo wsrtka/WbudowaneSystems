@@ -1,6 +1,7 @@
 #include "arm/sysregs.h"
 
 #include "mm.h"
+#include "arm/sysregs.h"
 
 .section ".text.boot"
 
@@ -33,11 +34,11 @@ master:
 	eret	
 
 el1_entry:
-	adr	x0, bss_begin
-	adr	x1, bss_end
-	sub	x1, x1, x0
-	bl 	memzero
+    adr    x0, bss_begin
+    adr    x1, bss_end
+    sub    x1, x1, x0
+    bl     memzero
 
-	mov	sp, #LOW_MEMORY
-	bl	kernel_main
-	b 	proc_hang	
+    mov    sp, #LOW_MEMORY
+    bl     kernel_main
+    b      proc_hang
