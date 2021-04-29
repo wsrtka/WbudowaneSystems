@@ -1,5 +1,6 @@
 #include "mini_uart.h"
 #include "printf.h"
+#include "utils.h"
 
 void kernel_main(void)
 {
@@ -11,6 +12,10 @@ void kernel_main(void)
 	enable_irq();
 
 	while (1){
-		uart_send(uart_recv());
+	
+	printf("Kernel initialized!\r\n");
+
+	int el = get_el();
+    printf("Exception level: %d \r\n", el);
 	}
 }

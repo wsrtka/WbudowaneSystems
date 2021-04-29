@@ -1,6 +1,3 @@
-
-// customowa, prosta implementacja funkcji printf do debugowania kernela
-
 /*
 File: printf.c
 
