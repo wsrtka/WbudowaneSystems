@@ -12,7 +12,12 @@ void kernel_main(void)
 	int el = get_el();
     printf("Exception level: %d \r\n", el);
 
-	while (1) {
+	irq_vector_init();
+	timer_init();
+	enable_interrupt_controller();
+	enable_irq();
+
+	while (1){
 		uart_send(uart_recv());
 	}
 }
