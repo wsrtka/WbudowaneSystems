@@ -157,11 +157,11 @@ el0_irq:
 
 el0_sync:
 	kernel_entry 0
-	mrs	x25, esr_el1
-	lsr	x24, x25, #ESR_ELx_EC_SHIFT	
-	cmp	x24, #ESR_ELx_EC_SVC64
+	mrs	x25, esr_el1				// read the syndrome register
+	lsr	x24, x25, #ESR_ELx_EC_SHIFT		// exception class
+	cmp	x24, #ESR_ELx_EC_SVC64			// SVC in 64-bit state
 	b.eq	el0_svc
-	cmp	x24, #ESR_ELx_EC_DABT_LOW
+	cmp	x24, #ESR_ELx_EC_DABT_LOW		// data abort in EL0
 	b.eq	el0_da
 	handle_invalid_entry 0, SYNC_ERROR
 
