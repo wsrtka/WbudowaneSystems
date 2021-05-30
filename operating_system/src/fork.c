@@ -12,7 +12,7 @@ int copy_process(unsigned long fn, unsigned long arg)
 		return 1;
 	p->priority = current->priority;
 	p->state = TASK_RUNNING;
-	p->counter = p->priority;
+	p->counter = 5;
 	p->preempt_count = 1; //disable preemtion until schedule_tail
 
 	p->cpu_context.x19 = fn;
