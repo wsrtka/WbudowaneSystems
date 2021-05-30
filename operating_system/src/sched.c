@@ -24,7 +24,7 @@ void _schedule(void)
 	int next,c;
 	struct task_struct * p;
 	while (1) {
-		c = -1;
+		c = 0;
 		next = 0;
 		for (int i = 0; i < NR_TASKS; i++){
 			p = task[i];
